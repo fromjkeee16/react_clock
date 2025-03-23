@@ -34,10 +34,8 @@ export class App extends React.Component {
   };
 
   componentDidMount(): void {
-    const shorthand = document.addEventListener;
-
-    shorthand('click', this.handleLeftMouseClick);
-    shorthand('contextmenu', this.handleRightMouseClick);
+    document.addEventListener('click', this.handleLeftMouseClick);
+    document.addEventListener('contextmenu', this.handleRightMouseClick);
 
     this.timerId = window.setInterval(() => {
       this.setState({ clockName: getRandomName() });
@@ -45,10 +43,8 @@ export class App extends React.Component {
   }
 
   componentWillUnmount(): void {
-    const shorthand = document.removeEventListener;
-
-    shorthand('click', this.handleLeftMouseClick);
-    shorthand('contextmenu', this.handleRightMouseClick);
+    document.removeEventListener('click', this.handleLeftMouseClick);
+    document.removeEventListener('contextmenu', this.handleRightMouseClick);
 
     window.clearInterval(this.timerId);
   }
